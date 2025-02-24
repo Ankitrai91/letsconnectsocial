@@ -43,7 +43,10 @@ const PostShare = () => {
         formData.append("likes", 0);
         formData.append("liked", false);
 
-        const response = await fetch("http://localhost:8080/api/posts/upload", {
+        const API_URL = process.env.REACT_APP_API_URL;
+
+
+        const response = await fetch(`${API_URL}/api/posts/upload`, {
           method: "POST",
           body: formData,
         });
@@ -68,7 +71,10 @@ const PostShare = () => {
         formData.append("likes", 0);
         formData.append("liked", false);
 
-        const response = await fetch("http://localhost:8080/api/posts/upload/video", {
+        const API_URL = process.env.REACT_APP_API_URL;
+
+
+        const response = await fetch(`${API_URL}/api/posts/upload/video`, {
           method: "POST",
           body: formData,
         });

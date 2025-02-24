@@ -12,7 +12,10 @@ const Posts = () => {
   const [posts, setPosts] = useState([])
 
   const fetchPosts = async () => {
-    const response = await fetch("http://localhost:8080/api/posts/fetchAllPosts");
+    const API_URL = process.env.REACT_APP_API_URL;
+
+
+    const response = await fetch(`${API_URL}/api/posts/fetchAllPosts`);
     const converted = await response.json()
     setPosts(converted)
   }
@@ -26,7 +29,9 @@ const Posts = () => {
       _id: post._doc._id,
       userId: localStorage.getItem("userId")
     }
-    const response = await fetch('http://localhost:8080/api/profile/like', {
+    const API_URL = process.env.REACT_APP_API_URL;
+   
+    const response = await fetch(`${API_URL}/api/profile/like`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

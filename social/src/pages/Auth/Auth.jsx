@@ -34,7 +34,9 @@ function LogIn() {
     const formData = { username, password };
 
     try {
-      const response = await fetch('http://localhost:8080/api/users/login', {
+      const API_URL = process.env.REACT_APP_API_URL;
+
+      const response = await fetch(`${API_URL}/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -141,7 +143,10 @@ function Authenticate() {
     const formData = { firstName, lastName: lastname, username, password };
 
     try {
-      const response = await fetch('http://localhost:8080/api/users/signup', {
+      const API_URL = process.env.REACT_APP_API_URL;
+
+
+      const response = await fetch(`${API_URL}/api/users/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

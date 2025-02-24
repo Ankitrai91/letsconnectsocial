@@ -5,7 +5,10 @@ const FollowersCard = () => {
     const [users, setUsers] = useState([]);
     const [unfollow, setUnfollow] = useState([])
     const fetchUsers = async () => {
-        const response = await fetch("http://localhost:8080/api/users/fetchUsers");
+        const API_URL = process.env.REACT_APP_API_URL;
+
+
+        const response = await fetch(`${API_URL}/api/users/fetchUsers`);
         const converted = await response.json()
         console.log("all users", converted)
         setUsers(converted)
@@ -21,7 +24,10 @@ const FollowersCard = () => {
             followerId: follwoerId._id
 
         }
-        const response = await fetch('http://localhost:8080/api/profile/follow', {
+        const API_URL = process.env.REACT_APP_API_URL;
+
+
+        const response = await fetch(`${API_URL}/api/profile/follow`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

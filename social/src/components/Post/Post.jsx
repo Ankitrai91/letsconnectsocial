@@ -19,8 +19,10 @@ const Post = ({ data, attribute }) => {
         _id: attribute._id,
         userId: localStorage.getItem("userId"),
       };
+      const API_URL = process.env.REACT_APP_API_URL;
 
-      const response = await fetch("http://localhost:8080/api/profile/like", {
+
+      const response = await fetch(`${API_URL}/api/profile/like`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
